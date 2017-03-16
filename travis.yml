@@ -1,0 +1,17 @@
+language: elixir
+os:
+  - linux
+  #- osx
+elixir:
+  - 1.4.2
+  - 1.4
+otp_release:
+  - 19
+script:
+  - MIX_ENV=test mix test --trace
+after_success:
+  - MIX_ENV=test mix credo -a
+  - mix coveralls.travis
+services:
+  - redis-server
+sudo: false
