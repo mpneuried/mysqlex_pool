@@ -1,0 +1,4 @@
+%{"benchfella": {:hex, :benchfella, "0.3.4", "41d2c017b361ece5225b5ba2e3b30ae53578c57c6ebc434417b4f1c2c94cf4f3", [:mix], []},
+  "mysql": {:hex, :mysql, "1.0.0", "61113d38bd1e53d62ea4ed41bb40f12535382a6c1bb826e5b20aa75cfdae132c", [:mix], []},
+  "mysqlex": {:hex, :mysqlex, "0.0.1", "fc8184be5645b5e8d3daeef8b1ca7b1252f80134279cca9d76690bc0097ce17b", [:mix], [{:mysql, "~> 1.0.0", [hex: :mysql, optional: false]}]},
+  "poolboy": {:hex, :poolboy, "1.5.1", "6b46163901cfd0a1b43d692657ed9d7e599853b3b21b95ae5ae0a777cf9b6ca8", [:rebar], []}}
