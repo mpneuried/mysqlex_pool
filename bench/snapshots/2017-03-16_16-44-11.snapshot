@@ -1,4 +1,0 @@
-duration:5.0;mem stats:false;sys mem stats:false
-module;test;tags;iterations;elapsed
-MysqlexPoolBench	select one		50000	12141248
-MysqlexPoolBench	select with subselect		500	13747858
