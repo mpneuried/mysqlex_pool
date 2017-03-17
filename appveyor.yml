@@ -16,18 +16,24 @@ install:
   - mix deps.get
   - mix compile
 
-$env:MYSQLEX_POOL_USER="world"
-$env:MYSQLEX_POOL_PASSWORD="world"
-$env:MYSQLEX_POOL_HOST="127.0.0.1"
-$env:MYSQLEX_POOL_PORT="3306"
-$env:MYSQLEX_POOL_DATABASE="world"
-$env:MYSQLEX_POOL_SIZE="10"
-$env:MYSQLEX_POOL_OVERFLOW="1"
-$env:MIX_ENV="test"
+environment
+  MYSQLEX_POOL_USER:world
+  MYSQLEX_POOL_PASSWORD:world
+  MYSQLEX_POOL_HOST:127.0.0.1
+  MYSQLEX_POOL_PORT:3306
+  MYSQLEX_POOL_DATABASE:world
+  MYSQLEX_POOL_SIZE:10
+  MYSQLEX_POOL_OVERFLOW:1
+  MIX_ENV:test
+  
+  MYSQL_PATH: C:\Program Files\MySQL\MySQL Server 5.7
 
 # configurate mysql
-iex '& "C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql" -e --user=root "CREATE USER \'world\'@\'127.0.0.1\' IDENTIFIED BY \'world\';"'
-iex '& "C:\Program Files\MySQL\MySQL Server 5.7\bin\mysql" -e --user=root "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO \'world\'@\'127.0.0.1\';"'
+
+before_test:
+  - SET PATH=%MYSQL_PATH%\bin;%PATH%
+  - mysql -e --user=root "CREATE USER 'world'@'127.0.0.1' IDENTIFIED BY 'world'"
+  - mysql -e --user=root "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO 'world'@'127.0.0.1';"
 
 services:
   - mysql
