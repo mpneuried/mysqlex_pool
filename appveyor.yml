@@ -34,6 +34,7 @@ environment:
 # configurate mysql
 before_test:
   - SET PATH=%MYSQL_PATH%\bin;%PATH%
+  - mysql --host=%MYSQL_HOST% --user=%MYSQL_USER% --password=%MYSQL_PASSWORD% <  _dev/world.sql
   - mysql --host=%MYSQL_HOST% --user=%MYSQL_USER% --password=%MYSQL_PASSWORD% -e "CREATE USER 'world'@'127.0.0.1' IDENTIFIED BY 'world';"
   - mysql --host=%MYSQL_HOST% --user=%MYSQL_USER% --password=%MYSQL_PASSWORD% -e "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO 'world'@'127.0.0.1';"
 
@@ -42,7 +43,7 @@ services:
 
 # Post-install test scripts.
 test_script:
-  - set mix test --trace --cover
+  - mix test --trace --cover
 
 # Don't actually build using MSBuild
 build: off
