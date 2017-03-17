@@ -16,7 +16,7 @@ install:
   - mix deps.get
   - mix compile
 
-environment
+environment:
   MYSQLEX_POOL_USER: world
   MYSQLEX_POOL_PASSWORD: world
   MYSQLEX_POOL_HOST: 127.0.0.1
