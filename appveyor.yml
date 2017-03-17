@@ -17,17 +17,16 @@ install:
   - mix compile
 
 environment
-  MYSQLEX_POOL_USER:world
-  MYSQLEX_POOL_PASSWORD:world
-  MYSQLEX_POOL_HOST:127.0.0.1
-  MYSQLEX_POOL_PORT:3306
-  MYSQLEX_POOL_DATABASE:world
-  MYSQLEX_POOL_SIZE:10
-  MYSQLEX_POOL_OVERFLOW:1
-  MIX_ENV:test
+  MYSQLEX_POOL_USER: world
+  MYSQLEX_POOL_PASSWORD: world
+  MYSQLEX_POOL_HOST: 127.0.0.1
+  MYSQLEX_POOL_PORT: 3306
+  MYSQLEX_POOL_DATABASE: world
+  MYSQLEX_POOL_SIZE: 10
+  MYSQLEX_POOL_OVERFLOW: 1
+  MIX_ENV: test
 
 # configurate mysql
-
 before_test:
   - SET PATH=C:\Program Files\MySQL\MySQL Server 5.7\bin;%PATH%
   - mysql -e --user=root "CREATE USER 'world'@'127.0.0.1' IDENTIFIED BY 'world'"
