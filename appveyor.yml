@@ -25,7 +25,7 @@ environment
   MYSQLEX_POOL_SIZE:10
   MYSQLEX_POOL_OVERFLOW:1
   MIX_ENV:test
-  MYSQL_PATH:C:\Program Files\MySQL\MySQL Server 5.7
+  MYSQL_PATH: 'C:\Program Files\MySQL\MySQL Server 5.7'
 
 # configurate mysql
 
