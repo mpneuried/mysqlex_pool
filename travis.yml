@@ -7,11 +7,13 @@ elixir:
   - 1.4
 otp_release:
   - 19
+before_install:
+  - mysql < _dev/world.sql
 script:
   - MIX_ENV=test mix test --trace
 after_success:
   - MIX_ENV=test mix credo -a
   - mix coveralls.travis
 services:
-  - redis-server
+  - mysql
 sudo: false
