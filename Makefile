@@ -12,3 +12,7 @@ info:
 t: test
 test: info
 	MIX_ENV=test mix test --trace $(TESTARG)
+
+b: bench
+bench: info
+	MIX_ENV=test mix bench -d 5

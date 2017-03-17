@@ -25,12 +25,17 @@ environment:
   MYSQLEX_POOL_SIZE: 10
   MYSQLEX_POOL_OVERFLOW: 1
   MIX_ENV: test
+  
+  MYSQL_PATH: C:\Program Files\MySQL\MySQL Server 5.7
+  MYSQL_HOST: localhost
+  MYSQL_USER: root
+  MYSQL_PASSWORD: Password12!
 
 # configurate mysql
 before_test:
-  - SET PATH=C:\Program Files\MySQL\MySQL Server 5.7\bin;%PATH%
-  - mysql -e --user=root "CREATE USER 'world'@'127.0.0.1' IDENTIFIED BY 'world'"
-  - mysql -e --user=root "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO 'world'@'127.0.0.1';"
+  - SET PATH=%MYSQL_PATH%\bin;%PATH%
+  - mysqladmin --host=%MYSQL_HOST% --user=%MYSQL_USER% --password=%MYSQL_PASSWORD% "CREATE USER 'world'@'127.0.0.1' IDENTIFIED BY 'world'"
+  - mysqladmin --host=%MYSQL_HOST% --user=%MYSQL_USER% --password=%MYSQL_PASSWORD% "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO 'world'@'127.0.0.1';"
 
 services:
   - mysql

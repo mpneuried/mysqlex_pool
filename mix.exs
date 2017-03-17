@@ -1,12 +1,17 @@
 defmodule MysqlexPool.Mixfile do
+	@moduledoc """
+	A warpper for mysqlex to add connection pooling with poolboy
+	"""
 	use Mix.Project
 
 	defp package do
 		[
-			files: ["lib", "mix.exs", "README.md", "LICENSE"],
-			maintainers: ["M. Peter"],
-			licenses: ["MIT"],
-			links: %{"GitHub" => "https://github.com/mpneuried/mysqlex_pool"}
+			files: [ "lib", "mix.exs", "README.md", "LICENSE" ],
+			maintainers: [ "M. Peter" ],
+			licenses: [ "MIT" ],
+			links: %{ 
+				"GitHub" => "https://github.com/mpneuried/mysqlex_pool"
+			}
 		]
 	end
 
@@ -19,15 +24,15 @@ defmodule MysqlexPool.Mixfile do
 	def project do
 		[
 			app: :mysqlex_pool,
-			version: "0.1.0",
+			version: "0.2.0",
 			elixir: "~> 1.4",
 			build_embedded: Mix.env == :prod,
 			start_permanent: Mix.env == :prod,
-			deps: deps(),
-			package: package(),
-			description: description(),
-			docs: [ extras: ["README.md"], main: "readme"],
-			test_coverage: [tool: ExCoveralls]
+			deps: deps( ),
+			package: package( ),
+			description: description( ),
+			docs: [ extras: [ "README.md" ], main: "readme" ],
+			test_coverage: [ tool: ExCoveralls ]
 		]
 	end
 
@@ -36,8 +41,10 @@ defmodule MysqlexPool.Mixfile do
 	# Type "mix help compile.app" for more information
 	def application do
 		# Specify extra applications you'll use from Erlang/Elixir
-		[extra_applications: [:logger],
-		 mod: {MysqlexPool, []}]
+		[
+			extra_applications: [ :logger ],
+			mod: { MysqlexPool, [ ] }
+		]
 	end
 
 	# Dependencies can be Hex packages:
@@ -54,11 +61,11 @@ defmodule MysqlexPool.Mixfile do
 			{ :poolboy, "~> 1.5" },
 			{ :mysqlex, "~> 0.0.1" },
 			{ :benchfella, "~> 0.3.4", only: [ :dev, :test ] },
-			{ :dialyze, "~> 0.2", only: :dev},
-			{ :earmark, ">= 0.0.0", only: [:docs, :dev]},
-			{ :ex_doc, ">= 0.0.0", only: [:docs, :dev]},
-			{ :credo, "~> 0.5", only: [:dev, :test]},
-			{ :excoveralls, "~> 0.5", only: [:dev, :test]}
+			{ :dialyze, "~> 0.2", only: :dev },
+			{ :earmark, ">= 0.0.0", only: [ :docs, :dev ] },
+			{ :ex_doc, ">= 0.0.0", only: [ :docs, :dev ] },
+			{ :credo, "~> 0.5", only: [ :dev, :test ] },
+			{ :excoveralls, "~> 0.5", only: [ :dev, :test ] }
 		]
 	end
 end
