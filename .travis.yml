@@ -14,7 +14,7 @@ before_script:
   - mysql -u root -e "CREATE USER 'world'@'127.0.0.1' IDENTIFIED BY 'world';"
   - mysql -u root -e "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO 'world'@'127.0.0.1';"
   - mysql -u root -e "CREATE USER 'other'@'localhost' IDENTIFIED BY 'supersecret';"
-  - mysql -u root -e "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON other.* TO 'world'@'localhost';"
+  - mysql -u root -e "GRANT CREATE, INSERT, SELECT, DELETE, UPDATE ON world.* TO 'other'@'localhost';"
 script:
   - MIX_ENV=test mix test --trace
 after_success:
