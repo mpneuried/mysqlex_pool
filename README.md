@@ -94,6 +94,7 @@ To use your own just copy it and use `make test=my_custom_test.env test`
 
 |Version|Date|Description|
 |:--:|:--:|:--|
+|0.2.1|2018-01-25|Updated dependencies|
 |0.2.0|2017-03-17|added configuration, added docs, fixed travis and appveyor ci configs.|
 |0.1.0|2017-03-16|initial wip version|
 

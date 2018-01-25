@@ -24,7 +24,7 @@ defmodule MysqlexPool.Mixfile do
 	def project do
 		[
 			app: :mysqlex_pool,
-			version: "0.2.0",
+			version: "0.2.1",
 			elixir: "~> 1.4",
 			build_embedded: Mix.env == :prod,
 			start_permanent: Mix.env == :prod,
@@ -60,12 +60,12 @@ defmodule MysqlexPool.Mixfile do
 		[
 			{ :poolboy, "~> 1.5" },
 			{ :mysqlex, "~> 0.0.1" },
-			{ :benchfella, "~> 0.3.4", only: [ :dev, :test ] },
+			{ :benchfella, "~> 0.3", only: [ :dev, :test ] },
 			{ :dialyze, "~> 0.2", only: :dev },
 			{ :earmark, ">= 0.0.0", only: [ :docs, :dev ] },
 			{ :ex_doc, ">= 0.0.0", only: [ :docs, :dev ] },
 			{ :credo, "~> 0.5", only: [ :dev, :test ] },
-			{ :excoveralls, "~> 0.5", only: [ :dev, :test ] }
+			{ :excoveralls, "~> 0.8", only: [ :dev, :test ] }
 		]
 	end
 end
