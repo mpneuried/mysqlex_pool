@@ -16,3 +16,7 @@ test: info
 b: bench
 bench: info
 	MIX_ENV=test mix bench -d 5
+
+
+up-dev-services:
+	docker-compose up
